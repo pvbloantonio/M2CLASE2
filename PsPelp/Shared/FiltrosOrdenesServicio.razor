@@ -1,0 +1,52 @@
+﻿@code {
+
+}
+
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label text-right">Empresa:</label>
+    <select class="col-sm-2 dropdown" name="codempresa">
+        <option value="PS" selected>Pelp Internacional</option>
+        <option value="PA">Pelp Servicio(Ases)</option>
+    </select>
+
+    <label class="col-sm-1 col-form-label text-right">Cliente:</label>
+    <select class="col-sm-2 dropdown" name="ddlcliente" asp-items="ddlClientes">
+        <option value="0">--Todos--</option>
+    </select>
+
+
+    <label class="col-sm-1 col-form-label text-right">Zona:</label>
+    <select class="col-sm-2 dropdown" name="zonaenum" asp-items="Html.GetEnumSelectList<Solicitud.ZonaEnum>()">
+        <option value="0">--Todas--</option>
+    </select>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label text-right">Técnicos:</label>
+    <select class="col-sm-2 dropdown" name="ddl_codtecnico" asp-items="ddl_codtecnico">
+        <option value="0">--Todos--</option>
+    </select>
+
+    <label class="col-sm-1 col-form-label text-right">Estado:</label>
+    <select class="col-sm-2 dropdown" name="estado">
+        <option value="0">--Todos--</option>
+        <option value="pendientes_repuestos">Pendiente Por Repuesto(G T V D)</option>
+        <option value="pendientes_repuestos_enviados">Pendiente Por Repuesto enviados</option>
+        <option value="pendientes_repuestos_no_enviados">Pendiente Por Repuesto no enviados</option>
+        <option value="pendientes">Pendientes(D)</option>
+        <option value="abiertas">Abiertas(G T V D)</option>
+        <option value="cerradas">Cerradas(P)</option>
+    </select>
+
+    <label class="col-sm-1 col-form-label text-right">tipo N°:</label>
+    <select id="tipo" class="col-sm-2 dropdown" onchange="muestra_oculta()" name="tipo" asp-items="ddlTipoNumeros">
+        <option value="0">--Todos--</option>
+    </select>
+
+    <label id="lblnumero" class="col-sm-1 col-form-label text-right">N°:</label>
+    <input id="txtnumero" class="col-sm-2 form-control" type="number" name="numero" min="0" value="0" />
+</div>
+
+<div class="form-group row justify-content-center">
+    <button type="submit" class="btn btn-danger">Buscar</button>
+</div>
